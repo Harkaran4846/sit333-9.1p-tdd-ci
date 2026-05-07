@@ -93,7 +93,7 @@ public class OnTrackTaskFeedbackServiceTest {
         TaskFeedbackResponse response = service.viewTaskFeedbackStatus("225191856", "SIT333-9.1P");
 
         assertEquals("Completed", response.getStatus());
-        assertEquals("Task completed", response.getMessage());
+        assertEquals("Wrong completed message", response.getMessage());
         assertFalse(response.isResubmissionRequired());
     }
 
