@@ -93,14 +93,14 @@ public class OnTrackTaskFeedbackServiceTest {
         TaskFeedbackResponse response = service.viewTaskFeedbackStatus("225191856", "SIT333-9.1P");
 
         assertEquals("Completed", response.getStatus());
-        assertEquals("Wrong completed message", response.getMessage());
+        assertEquals("Task completed", response.getMessage());
         assertFalse(response.isResubmissionRequired());
     }
 
     @Test
     public void testResubmitRequiredReturnsTrue() {
         OnTrackTaskFeedbackService service = new OnTrackTaskFeedbackService();
-        
+
         service.addTask(new OnTrackTask(
                 "225191856",
                 "SIT333-9.1P",
@@ -112,7 +112,7 @@ public class OnTrackTaskFeedbackServiceTest {
         TaskFeedbackResponse response = service.viewTaskFeedbackStatus("225191856", "SIT333-9.1P");
 
         assertEquals("Resubmit Required", response.getStatus());
-        assertEquals("More explanation is required in the TDD section3.", response.getMessage());
+        assertEquals("More explanation is required in the TDD section.", response.getMessage());
         assertTrue(response.isResubmissionRequired());
         
     }
